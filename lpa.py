@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
 
-#######################
-# Author: ZouHang
-# StudentID: 1809853P-II20-0032
-# Date: 2019-04-19
-#######################
-
 import time
 import numpy as np
 
