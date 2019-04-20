@@ -31,7 +31,7 @@ if __name__ == "__main__":
     labels_id = []
 
 
-    all_data, all_label = dataTool.dataTool.file2matrix('data/D31.txt')
+    all_data, all_label = dataTool.dataTool.file2matrix('data/%s.txt'%file_name)
     for it in all_data:
         if random.random() < unlabel_ratio:
             mat_unlabel_list.append([float(it[0]), float(it[1])])
@@ -55,9 +55,9 @@ if __name__ == "__main__":
     start = time.process_time()
     if model == 0:
         unlabel_data_labels = labelPropagation(Mat_Label, Mat_Unlabel, labels, knn_num_neighbors=knn_num,
-                                           max_iter=iter_num, tol=1e-1)
+                                           max_iter=iter_num, tol=acc)
     else:
-        unlabel_data_labels = run_label_propagation_sparse(Mat_Label, labels, labels_id, Mat_Unlabel, groundtruth, knn_num_neighbors=knn_num, max_iter=iter_num, tol=1e-1)
+        unlabel_data_labels = run_label_propagation_sparse(Mat_Label, labels, labels_id, Mat_Unlabel, groundtruth, knn_num_neighbors=knn_num, max_iter=iter_num, tol=acc)
 
 
     end = time.process_time()
